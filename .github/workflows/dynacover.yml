@@ -1,0 +1,17 @@
+name: Update Twitter Header Image with Dynacover
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - run: php dynacover cover update
+        name: 'Update Dynacover image and upload to Twitter'
+        uses: erikaheidi/dynacover@latest
+        env:
+          TW_CONSUMER_KEY: ${{ secrets.TW_CONSUMER_KEY}}
+          TW_CONSUMER_SECRET: ${{ secrets.TW_CONSUMER_SECRET}}
+          TW_USER_TOKEN: ${{ secrets.TW_USER_TOKEN}}
+          TW_USER_TOKEN_SECRET: ${{ secrets.TW_USER_TOKEN_SECRET}}
