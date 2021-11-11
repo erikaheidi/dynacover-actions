@@ -1,0 +1,14 @@
+# action.yml
+name: 'Update Cover'
+description: 'Runs Dynacover to update Twitter banner'
+inputs:
+  template:  # id of input
+    description: 'Template to Use'
+    required: false
+    default: 'app/Resources/templates/cover_basic.json'
+outputs:
+  response: # id of output
+    description: 'Output from command'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
