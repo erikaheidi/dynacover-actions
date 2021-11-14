@@ -7,9 +7,14 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          path: 'dynacover_custom'
       - run: php dynacover cover update
         name: 'Update Dynacover image and upload to Twitter'
-        uses: erikaheidi/dynacover@latest
+        uses: erikaheidi/dynacover@v3
+        with:
+          template: ${{ env.GITHUB_WORKSPACE }}/dynacover_custom/dynacover.json
         env:
           TW_CONSUMER_KEY: ${{ secrets.TW_CONSUMER_KEY}}
           TW_CONSUMER_SECRET: ${{ secrets.TW_CONSUMER_SECRET}}

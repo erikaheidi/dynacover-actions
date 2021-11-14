@@ -2,13 +2,13 @@
 name: 'Update Cover'
 description: 'Runs Dynacover to update Twitter banner'
 inputs:
-  template:  # id of input
+  template:
     description: 'Template to Use'
     required: false
-    default: 'app/Resources/templates/cover_basic.json'
+    default: 'cover_basic.json'
 outputs:
-  response: # id of output
-    description: 'Output from command'
+  response:
+    description: 'Output'
 runs:
   using: 'docker'
   image: 'Dockerfile'
