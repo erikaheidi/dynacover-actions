@@ -22,7 +22,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Checkout Dynacover
-RUN git clone -b 0.3.1 --depth 1 https://github.com/erikaheidi/dynacover.git && \
+RUN git clone -b 0.4 --depth 1 https://github.com/erikaheidi/dynacover.git && \
     cd dynacover && \
     composer install
 
