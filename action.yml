@@ -1,11 +1,13 @@
 # action.yml
-name: 'Update Cover'
-description: 'Runs Dynacover to update Twitter banner'
-icon: image
-color: purple
+name: 'Dynacover'
+description: 'Generate dynamic Twitter header images with latest followers'
+author: 'Erika Heidi'
+branding:
+  icon: 'image'
+  color: 'purple'
 inputs:
   template:
-    description: 'Template to Use'
+    description: 'Cover template to Use'
     required: false
     default: 'cover_basic.json'
 outputs:
