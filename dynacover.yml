@@ -7,18 +7,17 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           path: 'dynacover_custom'
       - name: 'Update Dynacover image and upload to Twitter'
-        uses: erikaheidi/dynacover-actions@v3
-        with:
-          template: cover_default.json
+        uses: erikaheidi/dynacover-actions@v4
         env:
-          #DYNA_TEMPLATES_DIR: ${{ env.GITHUB_WORKSPACE }}/dynacover_custom
-          #DYNA_IMAGES_DIR: ${{ env.GITHUB_WORKSPACE }}/dynacover_custom
-          DYNA_TWITTER_KEY: ${{ secrets.DYNA_TWITTER_KEY }}
-          DYNA_TWITTER_SECRET: ${{ secrets.DYNA_TWITTER_SECRET }}
-          DYNA_TWITTER_TOKEN: ${{ secrets.DYNA_TWITTER_TOKEN }}
-          DYNA_TWITTER_TOKEN_SECRET: ${{ secrets.DYNA_TWITTER_TOKEN_SECRET }}
+          #DYNA_DEFAULT_TEMPLATE: dynacover.json
+          #DYNA_TEMPLATES_DIR: ${{ github.workspace }}/dynacover_custom
+          #DYNA_IMAGES_DIR: ${{ github.workspace }}/dynacover_custom
+          DYNA_TWITTER_KEY: ${{ secrets.TW_CONSUMER_KEY }}
+          DYNA_TWITTER_SECRET: ${{ secrets.TW_CONSUMER_SECRET }}
+          DYNA_TWITTER_TOKEN: ${{ secrets.TW_USER_TOKEN }}
+          DYNA_TWITTER_TOKEN_SECRET: ${{ secrets.TW_USER_TOKEN_SECRET }}
           DYNA_GITHUB_TOKEN: ${{ secrets.DYNA_GITHUB_TOKEN }}
