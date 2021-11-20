@@ -16,6 +16,18 @@ you set up your action workflow. The GitHub token is optional, only required if 
 
 For more information, check [this tutorial](https://dev.to/erikaheidi/how-to-dynamically-update-twitter-cover-image-to-show-latest-followers-using-php-gd-and-twitteroauth-62n).
 
+### Customizing Template and Images
+
+You can fully customize the design of your banner. In order to do that, you'll need to include your custom template and any images you'll use in the repository where the workflow runs. This repository is checked out to a location that can be referenced from your workflow (check the example workflow for more info). 
+
+There are 3 environment variables you can use to set up the location of templates and images, and the default template:
+
+- `DYNA_TEMPLATES_DIR`: path to the default location of templates in your workflow repository.
+- `DYNA_IMAGES_DIR`: path to the default location of images referenced by your template, in your workflow repository.
+- `DYNA_DEFAULT_TEMPLATE`: name of your custom template relative to `DYNA_TEMPLATES_DIR`.
+
+For a real life example of how you can organize these files within your workflow, check the repository [erikaheidi/github-actions](https://github.com/erikaheidi/github-actions) where I have my own Dynacover set up.
+
 ## Inputs
 
 ## `template`
@@ -40,19 +52,19 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           path: 'dynacover_custom'
       - name: 'Update Dynacover image and upload to Twitter'
-        uses: erikaheidi/dynacover-actions@v3
-        with:
-          template: cover_default.json
+        uses: erikaheidi/dynacover-actions@v4
         env:
-          #DYNA_TEMPLATES_DIR: ${{ env.GITHUB_WORKSPACE }}/dynacover_custom
-          #DYNA_IMAGES_DIR: ${{ env.GITHUB_WORKSPACE }}/dynacover_custom
-          DYNA_TWITTER_KEY: ${{ secrets.DYNA_TWITTER_KEY }}
-          DYNA_TWITTER_SECRET: ${{ secrets.DYNA_TWITTER_SECRET }}
-          DYNA_TWITTER_TOKEN: ${{ secrets.DYNA_TWITTER_TOKEN }}
-          DYNA_TWITTER_TOKEN_SECRET: ${{ secrets.DYNA_TWITTER_TOKEN_SECRET }}
+          # Uncomment and change accordingly to customize your cover
+          #DYNA_DEFAULT_TEMPLATE: dynacover.json
+          #DYNA_TEMPLATES_DIR: ${{ github.workspace }}/dynacover_custom
+          #DYNA_IMAGES_DIR: ${{ github.workspace }}/dynacover_custom
+          DYNA_TWITTER_KEY: ${{ secrets.TW_CONSUMER_KEY }}
+          DYNA_TWITTER_SECRET: ${{ secrets.TW_CONSUMER_SECRET }}
+          DYNA_TWITTER_TOKEN: ${{ secrets.TW_USER_TOKEN }}
+          DYNA_TWITTER_TOKEN_SECRET: ${{ secrets.TW_USER_TOKEN_SECRET }}
           DYNA_GITHUB_TOKEN: ${{ secrets.DYNA_GITHUB_TOKEN }}
 ```

@@ -1,6 +1,8 @@
 # action.yml
 name: 'Update Cover'
 description: 'Runs Dynacover to update Twitter banner'
+icon: image
+color: purple
 inputs:
   template:
     description: 'Template to Use'
