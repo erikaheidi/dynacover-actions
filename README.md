@@ -1,7 +1,10 @@
-# Dynacover Docker Action
+# Dynacover Action
 
-This action runs [erikaheidi/dynacover](https://github.com/erikaheidi/dynacover) to update the Twitter header image
+[Dynacover](https://github.com/erikaheidi/dynacover) is a CLI application that dynamically generates Twitter header images showcasing your latest followers and/or GitHub Sponsors. 
+This action runs Dynacover to update the Twitter header image
 of the account linked through the secret keys that must be previously defined as [repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
+
+Please refer to [erikaheidi/dynacover](https://github.com/erikaheidi/dynacover) for more details on how Dynacover works, what are the customization options, and how to create custom templates.
 
 ## Requirements
 You'll need to set up your Twitter API credentials and user tokens using [repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets), on the same repository
@@ -42,6 +45,8 @@ The output from the command.
 
 ## Example usage
 
+The following example will set up a workflow to run once every hour. 
+
 ```yml
 name: Update Twitter Header Image with Dynacover
 on:
@@ -56,7 +61,7 @@ jobs:
         with:
           path: 'dynacover_custom'
       - name: 'Update Dynacover image and upload to Twitter'
-        uses: erikaheidi/dynacover-actions@v4
+        uses: erikaheidi/dynacover-actions@v4.2
         env:
           # Uncomment and change accordingly to customize your cover
           #DYNA_DEFAULT_TEMPLATE: dynacover.json
