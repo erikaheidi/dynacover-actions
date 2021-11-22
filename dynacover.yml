@@ -16,8 +16,8 @@ jobs:
           #DYNA_DEFAULT_TEMPLATE: dynacover.json
           #DYNA_TEMPLATES_DIR: ${{ github.workspace }}/dynacover_custom
           #DYNA_IMAGES_DIR: ${{ github.workspace }}/dynacover_custom
-          DYNA_TWITTER_KEY: ${{ secrets.TW_CONSUMER_KEY }}
-          DYNA_TWITTER_SECRET: ${{ secrets.TW_CONSUMER_SECRET }}
-          DYNA_TWITTER_TOKEN: ${{ secrets.TW_USER_TOKEN }}
-          DYNA_TWITTER_TOKEN_SECRET: ${{ secrets.TW_USER_TOKEN_SECRET }}
+          DYNA_TWITTER_KEY: ${{ secrets.DYNA_TWITTER_KEY }}
+          DYNA_TWITTER_SECRET: ${{ secrets.DYNA_TWITTER_SECRET }}
+          DYNA_TWITTER_TOKEN: ${{ secrets.DYNA_TWITTER_TOKEN }}
+          DYNA_TWITTER_TOKEN_SECRET: ${{ secrets.DYNA_TWITTER_TOKEN_SECRET }}
           DYNA_GITHUB_TOKEN: ${{ secrets.DYNA_GITHUB_TOKEN }}
