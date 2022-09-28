@@ -4,7 +4,7 @@ FROM erikaheidi/minicli:php81
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Checkout Dynacover
-RUN git clone -b 0.4 --depth 1 https://github.com/erikaheidi/dynacover.git && \
+RUN git clone -b 1.0.1 --depth 1 https://github.com/erikaheidi/dynacover.git && \
     cd dynacover && \
     composer install --no-progress --no-dev --prefer-dist
 
