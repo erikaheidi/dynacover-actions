@@ -1,9 +1,12 @@
-FROM erikaheidi/phpgd-base:7.4
+FROM erikaheidi/minicli:php81
+
+# Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Checkout Dynacover
 RUN git clone -b 0.4 --depth 1 https://github.com/erikaheidi/dynacover.git && \
     cd dynacover && \
-    composer install
+    composer install --no-progress --no-dev --prefer-dist
 
-ENTRYPOINT [ "php", "/dynacover/dynacover" ]
+ENTRYPOINT [ "php81", "/dynacover/dynacover" ]
 CMD ["cover", "update"]
