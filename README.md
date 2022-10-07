@@ -61,7 +61,7 @@ jobs:
         with:
           path: 'dynacover_custom'
       - name: 'Update Dynacover image and upload to Twitter'
-        uses: erikaheidi/dynacover-actions@v4.2
+        uses: erikaheidi/dynacover-actions@v4.2.3
         env:
           # Uncomment and change accordingly to customize your cover
           #DYNA_DEFAULT_TEMPLATE: dynacover.json
